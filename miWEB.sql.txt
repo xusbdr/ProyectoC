@@ -1,0 +1,92 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         5.5.40 - MySQL Community Server (GPL)
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             12.6.0.6765
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Volcando estructura de base de datos para colegio
+CREATE DATABASE IF NOT EXISTS `colegio` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `colegio`;
+
+-- Volcando estructura para tabla colegio.alumnos
+CREATE TABLE IF NOT EXISTS `alumnos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dni` varchar(9) DEFAULT NULL,
+  `nombre` tinytext,
+  `apellidos` tinytext,
+  `telefono` int(11) DEFAULT NULL,
+  `ciudad` text,
+  `provincia` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla colegio.alumnos: ~3 rows (aproximadamente)
+INSERT INTO `alumnos` (`id`, `dni`, `nombre`, `apellidos`, `telefono`, `ciudad`, `provincia`) VALUES
+	(1, '3434', 'jesusssss', 'dsgdgdgd', 232, 'Huelva', 'corrales'),
+	(5, '1234', 'laura', 'ediejd', 32324, 'Huelva', 'corrales'),
+	(7, '121', 'paola', 'sds', 233, 'Cordoba', 'cordoba');
+
+-- Volcando estructura para tabla colegio.asignaturasañadidas
+CREATE TABLE IF NOT EXISTS `asignaturasañadidas` (
+  `asignatura` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla colegio.asignaturasañadidas: ~2 rows (aproximadamente)
+INSERT INTO `asignaturasañadidas` (`asignatura`) VALUES
+	('Historia'),
+	('Arte ');
+
+-- Volcando estructura para tabla colegio.ciudad
+CREATE TABLE IF NOT EXISTS `ciudad` (
+  `ciudad` text,
+  `provincia` text,
+  `provincia1` text,
+  `provincia2` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla colegio.ciudad: ~7 rows (aproximadamente)
+INSERT INTO `ciudad` (`ciudad`, `provincia`, `provincia1`, `provincia2`) VALUES
+	('Huelva', 'huelva', 'corrales', 'gibraleon'),
+	('Sevilla', 'triana', 'dos hermanas', 'sevilla'),
+	('Cordoba', 'lucena', 'cordoba', 'puente genil'),
+	('Granada', 'granada', 'motril', 'almuñecar'),
+	('Malaga', 'marbella', 'velez-malaga', 'antequera'),
+	('Cadiz', 'jerez', 'algeciras', 'san fernado'),
+	('Jaen', 'linares', 'jaen', 'ubeda');
+
+-- Volcando estructura para tabla colegio.notas
+CREATE TABLE IF NOT EXISTS `notas` (
+  `id` int(11) DEFAULT NULL,
+  `asignatura` varchar(35) DEFAULT NULL,
+  `1Exm` double DEFAULT NULL,
+  `2Exm` double DEFAULT NULL,
+  `3Exm` double DEFAULT NULL,
+  `4Exm` double DEFAULT NULL,
+  `5Exm` double DEFAULT NULL,
+  `6Exm` double DEFAULT NULL,
+  `notamedia` double DEFAULT NULL,
+  `notamediacurso` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla colegio.notas: ~3 rows (aproximadamente)
+INSERT INTO `notas` (`id`, `asignatura`, `1Exm`, `2Exm`, `3Exm`, `4Exm`, `5Exm`, `6Exm`, `notamedia`, `notamediacurso`) VALUES
+	(1, 'Ciencias Naturale ', 3, 2, 6, 1, 1, 2, NULL, NULL),
+	(1, 'Biología', 1, 1, 1, 1, 1, 1, NULL, NULL),
+	(1, 'Matemáticas ', 1, 1, 1, 1, 1, 1, NULL, NULL);
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
